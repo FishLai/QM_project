@@ -32,5 +32,5 @@ def Operator_generator(upLimit, quantumNum, interval):
             elif i == (j + 1) and i < N :
                 Matrix[j][i] = 1./(a**2);
     print(Matrix); #look the matrix
-    return;
+    return Matrix;
 # Operator_generator(5, 0, 0.5); #test result
