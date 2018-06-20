@@ -1,27 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Created on Wed Jun  6 19:21:05 2018
 
-generate by FishLai 
+@author: quan_
 """
 
-from matrixDemo import Operator_generator as OG;
-import numpy as np;
-from numpy import linalg as LA;
+from QM_project_matrix_generator import Operator_generator as OG;
+import numpy.linalg as LA; 
 import matplotlib.pyplot as plt;
+import numpy as np;
 
-N = 100
-Matrix = OG(N, 0, 0.004); #OG(upLimit, quantumNum, interval)
+N = 1000;
+a = 0.001;
+Matrix = OG(N, 0, a); 
+Evalue, Evector = LA.eigh(Matrix, UPLO='L');
+#print(Evalue);
+#print(Evector);
+x = np.array([0]*N, dtype=float);
+for i in range(N):
+    x[i] = (i+1)*a;
 
-E_value, E_vector = LA.eigh(Matrix);
-#print(Matrix);
-#print(E_value);
-#print(E_vector);
-
-x = np.array([0]*N, dtype=np.float32);
-for i in range (N):
-    x[i] = (i+1)*0.004;
-
-plt.plot(x, E_vector[0]);
+#print(Evector[0]);
+plt.plot(x, Evector[0]);
 plt.show();
-
